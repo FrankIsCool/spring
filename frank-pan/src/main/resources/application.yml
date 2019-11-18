@@ -1,0 +1,25 @@
+# 服务端口号
+server:
+  port: 8086
+spring:
+  application:
+    name: frank-pan # 对外暴露的服务名称
+security:
+  oauth2:
+    client:
+      client-id: ben1
+      client-secret: 123456
+      user-authorization-uri: http://localhost:8001/pjb/oauth/authorize
+      access-token-uri: http://localhost:8001/pjb/oauth/token
+    resource:
+      jwt:
+        key-uri: http://localhost:8001/pjb/oauth/token_key
+        key-value: 123456
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true #是否注册到eureka服务器
+    fetch-registry: true #是否可检索
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ #服务中心
