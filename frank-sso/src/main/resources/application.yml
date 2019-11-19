@@ -2,10 +2,30 @@
 server:
   port: 8001
   servlet:
-    context-path: /pjb
+    context-path: /sso
 spring:
   application:
     name: frank-sso # 对外暴露的服务名称
+  redis:
+    database: 2
+    host: 47.110.236.21
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+    timeout: 100ms
+  datasource:
+    url: jdbc:mysql://47.110.236.21:3306/doudou?characterEncoding=UTF-8&useSSL=false
+    username: doudou
+    password: fu12071116045
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 9
 eureka:
   instance:
     hostname: localhost

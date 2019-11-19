@@ -8,19 +8,19 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * 类：
+ * 类：安全配置
  * 内容：
  * 创建人：付帅
  * 时间：2019/11/18
  */
-@Configuration
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-@EnableOAuth2Sso
-public class ClientWebsecurityConfigurer extends WebSecurityConfigurerAdapter {
-
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/**").authorizeRequests().anyRequest().authenticated();
-    }
-}
+//@Configuration
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableOAuth2Sso
+//public class ClientWebsecurityConfigurer extends WebSecurityConfigurerAdapter {
+//
+//    @Override
+//    public void configure(HttpSecurity http) throws Exception {
+//        http.antMatcher("/**").authorizeRequests().anyRequest().authenticated();
+//    }
+//}
