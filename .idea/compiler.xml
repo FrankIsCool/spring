@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="frank-sso" />
         <module name="frank-core" />
+        <module name="frank-user" />
         <module name="frank-eureka" />
         <module name="frank-pan" />
       </profile>
@@ -17,6 +18,7 @@
       <module name="frank-eureka" target="1.8" />
       <module name="frank-pan" target="1.8" />
       <module name="frank-sso" target="1.8" />
+      <module name="frank-user" target="1.8" />
       <module name="spring" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -26,6 +28,7 @@
       <module name="frank-eureka" options="-parameters" />
       <module name="frank-pan" options="-parameters" />
       <module name="frank-sso" options="-parameters" />
+      <module name="frank-user" options="-parameters" />
       <module name="spring" options="-parameters" />
     </option>
   </component>

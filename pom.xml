@@ -13,6 +13,7 @@
             <module>frank-sso</module>
             <module>frank-eureka</module>
             <module>frank-pan</module>
+            <module>frank-user</module>
         </modules>
     <parent>
         <groupId>org.springframework.cloud</groupId>

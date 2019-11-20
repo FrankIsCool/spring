@@ -1,11 +1,11 @@
 # 服务端口号
 server:
-  port: 8086
+  port: 8002
   servlet:
-    context-path: /pan
+    context-path: /user
 spring:
   application:
-    name: frank-pan # 对外暴露的服务名称
+    name: frank-user # 对外暴露的服务名称
 #   Redis配置
   redis:
     database: 2
@@ -22,8 +22,8 @@ spring:
 security:
   oauth2:
     client:
-      client-id: pan
-      client-secret: pan-frank-knDlT0NQHEfZVcoWjIV5rWawgVq8baao
+      client-id: user
+      client-secret: user-frank-knDlT0NQHEfZVcoWjIV5rWawgVq8baao
       user-authorization-uri: http://localhost:8001/sso/oauth/authorize
       access-token-uri: http://localhost:8001/sso/oauth/token
     resource:

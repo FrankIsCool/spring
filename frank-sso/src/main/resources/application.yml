@@ -3,9 +3,13 @@ server:
   port: 8001
   servlet:
     context-path: /sso
+
+#spring 配置
 spring:
   application:
     name: frank-sso # 对外暴露的服务名称
+
+#  redis 配置
   redis:
     database: 2
     host: 47.110.236.21
@@ -17,6 +21,7 @@ spring:
         max-idle: 8
         min-idle: 0
     timeout: 100ms
+#  数据库配置
   datasource:
     url: jdbc:mysql://47.110.236.21:3306/doudou?characterEncoding=UTF-8&useSSL=false
     username: doudou
@@ -26,11 +31,16 @@ spring:
       idle-timeout: 600000
       max-lifetime: 1800000
       maximum-pool-size: 9
+
+#注册中心配置
 eureka:
   instance:
     hostname: localhost
+    prefer-ip-address: true
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
   client:
-    register-with-eureka: true #是否注册到eureka服务器
-    fetch-registry: true #是否可检索
+    register-with-eureka: true  #是否注册到eureka服务器
+    fetch-registry: true        #是否可检索
     service-url:
-      defaultZone: http://localhost:8761/eureka/ #服务中心
+      defaultZone: http://frank:eureka@127.0.0.1:8761/eureka/ #服务中心

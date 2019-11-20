@@ -1,14 +1,33 @@
 # 服务端口号
 server:
   port: 8761
+#  spring 配置
 spring:
   application:
     name: frank-eureka # 对外暴露的服务名称
+# 安全配置
+  security:
+    user:
+      name: frank        # 用户名
+      password: eureka
+  cloud:
+    inetutils: ## 网卡设置
+      ignoredInterfaces:  ## 忽略的网卡
+        - docker0
+        - veth.*
+        - VM.*
+      preferredNetworks:  ## 优先的网段
+        - 192.168
+#注册中心配置
 eureka:
   instance:
-    hostname: localhost
+    hostname: frank-eureka
+    appname: 注册中心
   client:
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}@127.0.0.1:${server.port}/eureka/
-    register-with-eureka: false
+    register-with-eureka: false # 单点的时候设置为 false 禁止注册自身
     fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 4000
