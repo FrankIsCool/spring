@@ -13,14 +13,14 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
  * 创建人：付帅
  * 时间：2019/11/19
  */
-@Configuration
-public class RedisTokenStoreConfig {
-
-    @Autowired
-    private RedisConnectionFactory redisConnectionFactory;
-
-    @Bean
-    public TokenStore redisTokenStore (){
-        return new RedisTokenStore(redisConnectionFactory);
-    }
-}
+//@Configuration
+//public class RedisTokenStoreConfig {
+//
+//    @Autowired
+//    private RedisConnectionFactory redisConnectionFactory;
+//
+//    @Bean
+//    public TokenStore redisTokenStore (){
+//        return new RedisTokenStore(redisConnectionFactory);
+//    }
+//}

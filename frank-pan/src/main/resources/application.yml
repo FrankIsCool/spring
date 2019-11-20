@@ -20,16 +20,16 @@ spring:
 security:
   oauth2:
     client:
-      client-id: user-client
-      client-secret: user-secret-8888
+      client-id: pan
+      client-secret: pan-frank-knDlT0NQHEfZVcoWjIV5rWawgVq8baao
       user-authorization-uri: http://localhost:8001/sso/oauth/authorize
       access-token-uri: http://localhost:8001/sso/oauth/token
     resource:
       jwt:
         key-uri: http://localhost:8001/sso/oauth/token_key
         key-value: 123456
-      id: user-client
-      user-info-uri: user-info
+#      id: pan
+#      user-info-uri: pan
     authorization:
       check-token-access: http://localhost:8001/sso/oauth/check_token
 eureka:

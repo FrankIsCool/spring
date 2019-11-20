@@ -6,17 +6,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="frank-sso" />
         <module name="frank-core" />
+        <module name="frank-eureka" />
+        <module name="frank-pan" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="frank-core" target="1.8" />
+      <module name="frank-eureka" target="1.8" />
+      <module name="frank-pan" target="1.8" />
+      <module name="frank-sso" target="1.8" />
       <module name="spring" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="frank-core" options="-parameters" />
+      <module name="frank-eureka" options="-parameters" />
+      <module name="frank-pan" options="-parameters" />
+      <module name="frank-sso" options="-parameters" />
+      <module name="spring" options="-parameters" />
     </option>
   </component>
 </project>
