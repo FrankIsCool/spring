@@ -1,6 +1,6 @@
 # 服务端口号
 server:
-  port: 8086
+  port: 8003
   servlet:
     context-path: /pan
 spring:
