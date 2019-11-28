@@ -14,6 +14,7 @@
             <module>frank-eureka</module>
             <module>frank-pan</module>
             <module>frank-user</module>
+            <module>frank-news</module>
         </modules>
     <parent>
         <groupId>org.springframework.cloud</groupId>

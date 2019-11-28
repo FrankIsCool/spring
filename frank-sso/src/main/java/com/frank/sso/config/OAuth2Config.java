@@ -2,12 +2,10 @@ package com.frank.sso.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.config.annotation.builders.JdbcClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -32,12 +30,6 @@ import java.util.List;
 @EnableAuthorizationServer
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
-//    @Autowired
-//    public PasswordEncoder passwordEncoder;
-//
-//    @Autowired
-//    @Qualifier("SSOUserDetailsService")
-//    public UserDetailsService userDetailsService;
     @Autowired
     public PasswordEncoder passwordEncoder;
 
@@ -47,9 +39,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
-//    @Autowired
-//    private TokenStore redisTokenStore;
 
     @Autowired
     private DataSource dataSource;
@@ -61,21 +50,10 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     @Autowired
-    private TokenEnhancer jwtTokenEnhancer;
+    private JWTokenEnhancer jwtTokenEnhancer;
 
     @Override
     public void configure(final AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        /**
-         * 普通 jwt 模式
-         */
-//         endpoints.tokenStore(jwtTokenStore)
-//                .accessTokenConverter(jwtAccessTokenConverter)
-//                .userDetailsService(kiteUserDetailsService)
-//                /**
-//                 * 支持 password 模式
-//                 */
-//                .authenticationManager(authenticationManager);
-
         /**
          * jwt 增强模式
          */
@@ -92,32 +70,11 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                 .authenticationManager(authenticationManager)
                 .tokenEnhancer(enhancerChain)
                 .accessTokenConverter(jwtAccessTokenConverter);
-
-        /**
-         * redis token 方式
-         */
-//        endpoints.authenticationManager(authenticationManager)
-//                .tokenStore(redisTokenStore)
-//                .userDetailsService(kiteUserDetailsService);
-
     }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.jdbc(dataSource);
-
-//        clients.inMemory()
-//                .withClient("order-client")
-//                .secret(passwordEncoder.encode("order-secret-8888"))
-//                .authorizedGrantTypes("refresh_token", "authorization_code", "password")
-//                .accessTokenValiditySeconds(3600)
-//                .scopes("all")
-//                .and()
-//                .withClient("user-client")
-//                .secret(passwordEncoder.encode("user-secret-8888"))
-//                .authorizedGrantTypes("refresh_token", "authorization_code", "password")
-//                .accessTokenValiditySeconds(3600)
-//                .scopes("all");
     }
 
     @Override

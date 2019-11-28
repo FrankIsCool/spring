@@ -1,18 +1,12 @@
 package com.frank.sso.service;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.redis.JdkSerializationStrategy;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStoreSerializationStrategy;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -29,11 +23,6 @@ public class SSOUserDetailsService implements UserDetailsService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-//    private RedisTokenStoreSerializationStrategy serializationStrategy = new JdkSerializationStrategy();
-
-//    @Autowired
-//    private TokenStore redisTokenStore;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

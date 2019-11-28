@@ -1,11 +1,11 @@
 # 服务端口号
 server:
-  port: 8002
+  port: 8004
   servlet:
-    context-path: /user
+    context-path: /news
 spring:
   application:
-    name: frank-user # 对外暴露的服务名称
+    name: frank-news # 对外暴露的服务名称
 #   Redis配置
   redis:
     database: 2
@@ -18,16 +18,12 @@ spring:
         max-idle: 8
         min-idle: 0
     timeout: 100ms
-  config:
-    jwt:
-      signing-key: frank-signing
-      verifier-key: frank-verifier
 #    安全配置
 security:
   oauth2:
     client:
-      client-id: user
-      client-secret: user-frank-knDlT0NQHEfZVcoWjIV5rWawgVq8baao
+      client-id: news
+      client-secret: news-frank-knDlT0NQHEfZVcoWjIV5rWawgVq8baao
       user-authorization-uri: http://localhost:8001/sso/oauth/authorize
       access-token-uri: http://localhost:8001/sso/oauth/token
     resource:

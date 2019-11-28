@@ -31,6 +31,9 @@ spring:
       idle-timeout: 600000
       max-lifetime: 1800000
       maximum-pool-size: 9
+  config:
+    jwt:
+      signing-key: frank-signing
 
 #注册中心配置
 eureka:
@@ -44,3 +47,6 @@ eureka:
     fetch-registry: true        #是否可检索
     service-url:
       defaultZone: http://frank:eureka@127.0.0.1:8761/eureka/ #服务中心
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml

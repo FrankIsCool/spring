@@ -6,16 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="frank-sso" />
-        <module name="frank-core" />
-        <module name="frank-user" />
-        <module name="frank-eureka" />
         <module name="frank-pan" />
+        <module name="frank-news" />
+        <module name="frank-core" />
+        <module name="frank-eureka" />
+        <module name="frank-sso" />
+        <module name="frank-user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="frank-core" target="1.8" />
       <module name="frank-eureka" target="1.8" />
+      <module name="frank-news" target="1.8" />
       <module name="frank-pan" target="1.8" />
       <module name="frank-sso" target="1.8" />
       <module name="frank-user" target="1.8" />
@@ -26,6 +28,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="frank-core" options="-parameters" />
       <module name="frank-eureka" options="-parameters" />
+      <module name="frank-news" options="-parameters" />
       <module name="frank-pan" options="-parameters" />
       <module name="frank-sso" options="-parameters" />
       <module name="frank-user" options="-parameters" />

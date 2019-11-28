@@ -1,5 +1,6 @@
 package com.frank.sso.config;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -14,6 +15,7 @@ import java.util.Map;
  * 创建人：付帅
  * 时间：2019/11/20
  */
+@Configuration
 public class JWTokenEnhancer implements TokenEnhancer {
 
     @Override
