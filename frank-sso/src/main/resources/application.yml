@@ -31,6 +31,7 @@ spring:
       idle-timeout: 600000
       max-lifetime: 1800000
       maximum-pool-size: 9
+    driver-class-name: com.mysql.jdbc.Driver
   config:
     jwt:
       signing-key: frank-signing
@@ -48,5 +49,6 @@ eureka:
     service-url:
       defaultZone: http://frank:eureka@127.0.0.1:8761/eureka/ #服务中心
 mybatis:
-  config-location: classpath:mybatis/mybatis-config.xml
+#  config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.frank.sso.model

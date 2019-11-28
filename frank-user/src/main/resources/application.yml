@@ -46,3 +46,7 @@ eureka:
     fetch-registry: true #是否可检索
     service-url:
       defaultZone: http://frank:eureka@localhost:8761/eureka/ #服务中心
+mybatis:
+  #  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.frank.sso.model

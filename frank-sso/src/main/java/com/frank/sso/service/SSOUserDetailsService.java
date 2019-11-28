@@ -1,5 +1,7 @@
 package com.frank.sso.service;
 
+import com.frank.sso.model.UserLogin;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -24,24 +26,25 @@ public class SSOUserDetailsService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private UserLoginService userLoginService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // 查询数据库操作
-        if(!username.equals("admin")){
-            throw new UsernameNotFoundException("the user is not found");
-        }else{
-            // 用户角色也应在数据库中获取
-            String role = "ROLE_ADMIN";
-            List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-            authorities.add(new SimpleGrantedAuthority(role));
-            // 线上环境应该通过用户名查询数据库获取加密后的密码
-            String password = passwordEncoder.encode("123456");
-            // 返回默认的 User
-            // return new org.springframework.security.core.userdetails.User(username,password, authorities);
-
-            // 返回自定义的 KiteUserDetails
-            User user = new User(username,password,authorities);
-            return user;
+        if(StringUtils.isEmpty(username)){
+            throw new UsernameNotFoundException("the username is not null");
         }
+        UserLogin userLogin = userLoginService.getUserLoginByName(username);
+        if(null==userLogin){
+            throw new UsernameNotFoundException("the user is not found");
+        }
+        String password = passwordEncoder.encode(userLogin.getPassword());
+        // 用户角色也应在数据库中获取
+        String role = "ROLE_ADMIN";
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(role));
+        // 返回自定义的
+        User user = new User(username,password,authorities);
+        return user;
     }
 }

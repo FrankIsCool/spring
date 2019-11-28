@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.frank.sso.dao.UserLoginDao">
+    <resultMap id="BaseResultMap" type="com.frank.sso.model.UserLogin">
+        <id column="id" property="id"/>
+        <result column="user_sn" property="userSn"/>
+        <result column="user_name" property="userName"/>
+        <result column="pass_word" property="passWord"/>
+        <result column="state" property="state"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, user_sn, user_name, pass_word, state, update_time, create_time
+    </sql>
+
+    <select id="getUserLoginByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM user_login
+        WHERE user_name = #{userName}
+    </select>
+
+<!--    <insert id="insert" parameterType="com.neo.entity.UserEntity">-->
+<!--        INSERT INTO-->
+<!--        users-->
+<!--        (userName,passWord,user_sex)-->
+<!--        VALUES-->
+<!--        (#{userName}, #{passWord}, #{userSex})-->
+<!--    </insert>-->
+
+<!--    <update id="update" parameterType="com.neo.entity.UserEntity">-->
+<!--        UPDATE-->
+<!--        users-->
+<!--        SET-->
+<!--        <if test="userName != null">userName = #{userName},</if>-->
+<!--        <if test="passWord != null">passWord = #{passWord},</if>-->
+<!--        nick_name = #{nickName}-->
+<!--        WHERE-->
+<!--        id = #{id}-->
+<!--    </update>-->
+
+<!--    <delete id="delete" parameterType="java.lang.Long">-->
+<!--        DELETE FROM-->
+<!--        users-->
+<!--        WHERE-->
+<!--        id =#{id}-->
+<!--    </delete>-->
+</mapper>
